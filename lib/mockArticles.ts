@@ -1,0 +1,68 @@
+import { Article } from './types';
+
+export const mockArticles: Article[] = [
+    {
+        id: '1',
+        title: '$PIGGY price in free fall since superform proposal. No way forward to exit without losses',
+        category: 'General',
+        thumbnail: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=2832',
+        timeAgo: '10 Minutes Ago',
+        views: '2.5M',
+        featured: true,
+        excerpt: 'Since the formal announcement of the acquisition proposal, $PIGGY has entered a severe downward spiral...'
+    },
+    {
+        id: '2',
+        title: 'Superform makes Proposal Bid to Acquire & Integrate $PIGGY to $UP Instead',
+        category: 'Proposal',
+        thumbnail: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=2965',
+        timeAgo: '1 Hour Ago',
+        views: '1.2M',
+        featured: true,
+    },
+    {
+        id: '3',
+        title: 'Community Temp Check: Should we burn the treasury?',
+        category: 'Temp Check',
+        thumbnail: 'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?auto=format&fit=crop&q=80&w=2932',
+        timeAgo: '3 Hours Ago',
+        views: '800K',
+        featured: false,
+    },
+    {
+        id: '4',
+        title: 'Marketing Initiative: Q4 Growth Strategy Revealed',
+        category: 'Marketing',
+        thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2940',
+        timeAgo: '5 Hours Ago',
+        views: '500K',
+        featured: false,
+    },
+    {
+        id: '5',
+        title: 'Operations Update: New Multisig Signers Added',
+        category: 'Operations',
+        thumbnail: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=2940',
+        timeAgo: '1 Day Ago',
+        views: '200K',
+        featured: false,
+    },
+    {
+        id: '6',
+        title: 'Proposal 142: Liquidity Migration to Uniswap V3',
+        category: 'Proposal',
+        thumbnail: 'https://images.unsplash.com/photo-1622630998477-20aa696fab05?auto=format&fit=crop&q=80&w=2946',
+        timeAgo: '2 Days Ago',
+        views: '3.1M',
+        featured: false,
+    },
+    {
+        id: '7',
+        title: 'Governance Forum: Discussion on Staking Rewards',
+        category: 'General',
+        thumbnail: 'https://images.unsplash.com/photo-1639322537228-ad7117f77e71?auto=format&fit=crop&q=80&w=2832',
+        timeAgo: '3 Days Ago',
+        views: '900K',
+        featured: false,
+    },
+];

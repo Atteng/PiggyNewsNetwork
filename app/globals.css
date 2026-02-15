@@ -8,19 +8,38 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* PiggyDAO Official Vibe */
+  --color-piggy-light-pink: #fb6cc8;
+  --color-piggy-deep-pink: #ff2f7a;
+  --color-piggy-brown: #231613;
+  --color-piggy-super-green: #9ce500;
+  --color-piggy-pale-green: #8cbc75;
+
+  /* Semantic mappings */
+  --color-piggy-bg: #000000;
+  --color-piggy-primary: #ff2f7a;
+  --color-piggy-accent: #9ce500;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    /* Piggy Brown */
+    --foreground: #ffffff;
   }
+}
+
+/* Class-based dark mode support for next-themes */
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jetbrains-mono);
 }
