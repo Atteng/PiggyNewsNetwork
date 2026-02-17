@@ -32,7 +32,7 @@ export default async function AdminDocsPage() {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-white/10">
-                        {docs.map((doc) => (
+                        {(docs as any[]).map((doc) => (
                             <tr key={doc.id} className="hover:bg-white/5 transition-colors">
                                 <td className="p-4 font-medium text-white pl-4">
                                     {/* Visual nesting indicator if parentId exists */}

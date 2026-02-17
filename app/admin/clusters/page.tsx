@@ -30,7 +30,7 @@ export default async function AdminClustersPage() {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-white/10">
-                        {clusters.map((cluster) => (
+                        {(clusters as any[]).map((cluster) => (
                             <tr key={cluster.id} className="hover:bg-white/5 transition-colors">
                                 <td className="p-4 font-medium text-white">{cluster.name}</td>
                                 <td className="p-4 text-white/70">{cluster.radius}</td>
@@ -38,7 +38,7 @@ export default async function AdminClustersPage() {
                                 <td className="p-4 text-white/70">{cluster.proposalCount}</td>
                                 <td className="p-4 text-white/70">
                                     <div className="flex flex-wrap gap-1">
-                                        {cluster.subCircles.map(sc => (
+                                        {(cluster.subCircles as any[]).map(sc => (
                                             <span key={sc.id} className="px-1.5 py-0.5 bg-white/10 rounded text-xs">{sc.name}</span>
                                         ))}
                                     </div>

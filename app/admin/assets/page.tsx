@@ -21,7 +21,7 @@ export default async function AdminAssetsPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {assets.map((asset) => (
+                {(assets as any[]).map((asset) => (
                     <div key={asset.id} className="group relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-white/30 transition-all">
                         <div className="aspect-square bg-black/20 relative">
                             {asset.thumbnailUrl ? (
