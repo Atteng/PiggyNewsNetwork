@@ -17,13 +17,13 @@ export async function GET() {
 
         // First, map ID to doc for easy lookup
         const docsMap = new Map();
-        allDocs.forEach(doc => {
+        (allDocs as any[]).forEach(doc => {
             docsMap.set(doc.id, { ...doc, children: [] });
         });
 
         const rootDocs: any[] = [];
 
-        allDocs.forEach(doc => {
+        (allDocs as any[]).forEach(doc => {
             const docWithChildren = docsMap.get(doc.id);
             if (doc.parentId) {
                 const parent = docsMap.get(doc.parentId);
@@ -40,7 +40,7 @@ export async function GET() {
 
         // Now organize roots by category
         const navigation: Record<string, any[]> = {};
-        rootDocs.forEach(doc => {
+        rootDocs.forEach((doc: any) => {
             if (!navigation[doc.category]) {
                 navigation[doc.category] = [];
             }
