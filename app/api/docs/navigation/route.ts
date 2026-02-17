@@ -17,13 +17,13 @@ export async function GET() {
 
         // First, map ID to doc for easy lookup
         const docsMap = new Map();
-        (allDocs as any[]).forEach(doc => {
+        allDocs.forEach((doc: any) => {
             docsMap.set(doc.id, { ...doc, children: [] });
         });
 
         const rootDocs: any[] = [];
 
-        (allDocs as any[]).forEach(doc => {
+        allDocs.forEach((doc: any) => {
             const docWithChildren = docsMap.get(doc.id);
             if (doc.parentId) {
                 const parent = docsMap.get(doc.parentId);
