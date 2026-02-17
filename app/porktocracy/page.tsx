@@ -12,14 +12,14 @@ export default async function PorktocracyPage() {
     });
 
     // Map to Cluster type
-    const clusters: Cluster[] = clustersData.map(c => ({
+    const clusters: Cluster[] = clustersData.map((c: any) => ({
         id: c.id,
         name: c.name,
         description: c.description || '',
         memberCount: c.memberCount,
         proposalCount: c.proposalCount,
         radius: c.radius,
-        subCircles: c.subCircles.map(s => s.name),
+        subCircles: c.subCircles.map((s: any) => s.name),
     }));
 
     return (

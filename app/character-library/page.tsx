@@ -16,13 +16,13 @@ export default async function CharacterLibraryPage() {
     });
 
     // Transform Prisma data to match the component's expected interface
-    const assets: BrandAsset[] = assetsData.map(asset => ({
+    const assets: BrandAsset[] = assetsData.map((asset: any) => ({
         id: asset.id,
         title: asset.title,
         category: asset.category as any, // Cast enum strictly if needed, or map it
         description: asset.description || undefined,
         thumbnail: asset.thumbnailUrl || '', // Fallback for thumbnail
-        files: asset.files.map(f => ({
+        files: asset.files.map((f: any) => ({
             name: f.name,
             url: f.fileUrl,
             format: f.format as any, // Verify formats match
@@ -43,7 +43,7 @@ export default async function CharacterLibraryPage() {
         <CharacterLibraryLayout
             sidebarContent={<BrandFolders assets={assets} />}
         >
-            {sections.map((section, index) => (
+            {sections.map((section: any, index: number) => (
                 <ContentSection key={index} title={section.title}>
                     <div className="prose prose-invert max-w-none">
                         <ReactMarkdown

@@ -10,7 +10,7 @@ export const revalidate = 300;
 export default async function GovernancePage() {
     const proposals = await fetchProposals();
 
-    const mappedProposals: MappedProposal[] = proposals.map(p => {
+    const mappedProposals: MappedProposal[] = proposals.map((p: any) => {
         // Map Snapshot status (active, closed, pending) to our internal upper case status
         const statusMap: Record<string, 'ACTIVE' | 'CLOSED' | 'PENDING'> = {
             'active': 'ACTIVE',

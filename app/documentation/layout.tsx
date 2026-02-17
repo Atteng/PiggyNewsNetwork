@@ -19,7 +19,7 @@ async function getDocNavigation(): Promise<DocNavItem[]> {
         // Group by category to build similar structure to Mock
         const categories: Record<string, DocNavItem> = {};
 
-        docs.forEach(doc => {
+        docs.forEach((doc: any) => {
             if (!categories[doc.category]) {
                 categories[doc.category] = {
                     id: doc.category,

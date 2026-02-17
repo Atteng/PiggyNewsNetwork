@@ -19,7 +19,7 @@ async function getArticles() {
         // Map Prisma result to our Frontend 'Article' type if needed.
         // Our 'Article' type in lib/types.ts might expect 'thumbnail' vs 'thumbnailUrl', 'timeAgo' etc.
         // Let's do a light mapping here.
-        return articles.map(a => ({
+        return articles.map((a: any) => ({
             id: a.slug, // Frontend uses ID for routing, usually slug
             title: a.title,
             excerpt: a.excerpt || '',
