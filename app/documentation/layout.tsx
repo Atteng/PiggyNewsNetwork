@@ -38,7 +38,7 @@ async function getDocNavigation(): Promise<DocNavItem[]> {
 
         return Object.values(categories);
 
-    } catch (e) {
+    } catch (e: any) {
         console.error("Failed to load doc nav", e);
         return [];
     }

@@ -13,7 +13,7 @@ export async function GET() {
         });
 
         return NextResponse.json(clusters);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error fetching clusters:', error);
         return NextResponse.json({ error: 'Failed to fetch clusters' }, { status: 500 });
     }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         });
 
         return NextResponse.json(cluster, { status: 201 });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error creating cluster:', error);
         return NextResponse.json({ error: 'Failed to create cluster' }, { status: 500 });
     }

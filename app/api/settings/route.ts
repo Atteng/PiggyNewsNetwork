@@ -12,7 +12,7 @@ export async function GET() {
         }, {} as Record<string, string>);
 
         return NextResponse.json(settingsMap);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error fetching settings:', error);
         return NextResponse.json({ error: 'Failed to fetch settings' }, { status: 500 });
     }

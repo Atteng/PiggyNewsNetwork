@@ -60,7 +60,7 @@ export async function GET(request: Request) {
         totalPages: Math.ceil(total / limit),
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching articles:', error);
     return NextResponse.json({ error: 'Failed to fetch articles' }, { status: 500 });
   }
@@ -107,7 +107,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(article, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating article:', error);
     return NextResponse.json({ error: 'Failed to create article' }, { status: 500 });
   }

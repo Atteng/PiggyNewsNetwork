@@ -13,7 +13,7 @@ export async function GET() {
         }
 
         return NextResponse.json(hero);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error fetching hero content:', error);
         return NextResponse.json({ error: 'Failed to fetch hero content' }, { status: 500 });
     }
@@ -59,7 +59,7 @@ export async function PUT(request: Request) {
         }
 
         return NextResponse.json(hero);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error updating hero content:', error);
         return NextResponse.json({ error: 'Failed to update hero content' }, { status: 500 });
     }

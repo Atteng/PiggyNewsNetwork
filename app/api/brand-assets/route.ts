@@ -13,7 +13,7 @@ export async function GET() {
         });
 
         return NextResponse.json(assets);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error fetching brand assets:', error);
         return NextResponse.json({ error: 'Failed to fetch brand assets' }, { status: 500 });
     }
@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         });
 
         return NextResponse.json(asset, { status: 201 });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error creating brand asset:', error);
         return NextResponse.json({ error: 'Failed to create brand asset' }, { status: 500 });
     }

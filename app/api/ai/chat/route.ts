@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
             content: text
         });
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('AI Chat Error:', error);
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }

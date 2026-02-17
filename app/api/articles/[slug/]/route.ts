@@ -22,14 +22,13 @@ export async function GET(
         }
 
         // Increment view count asynchronously (fire and forget)
-        // In a real app, you might want to debounce this or use a separate analytics service
         prisma.article.update({
             where: { id: article.id },
             data: { views: { increment: 1 } }
         }).catch(console.error);
 
         return NextResponse.json(article);
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error fetching article:', error);
         return NextResponse.json({ error: 'Failed to fetch article' }, { status: 500 });
     }
@@ -84,7 +83,7 @@ export async function PUT(
         });
 
         return NextResponse.json(article);
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error updating article:', error);
         return NextResponse.json({ error: 'Failed to update article' }, { status: 500 });
     }
@@ -108,7 +107,7 @@ export async function DELETE(
         });
 
         return NextResponse.json({ message: 'Article deleted successfully' });
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error deleting article:', error);
         return NextResponse.json({ error: 'Failed to delete article' }, { status: 500 });
     }
