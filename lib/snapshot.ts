@@ -64,7 +64,7 @@ export async function fetchProposals(): Promise<SnapshotProposal[]> {
         }
 
         return json.data.proposals || [];
-    } catch (error) {
+    } catch (error: any) {
         console.error('Failed to fetch proposals:', error);
         return [];
     }
@@ -103,7 +103,7 @@ export async function fetchProposal(id: string): Promise<SnapshotProposal | null
 
         const json = await response.json();
         return json.data.proposal || null;
-    } catch (error) {
+    } catch (error: any) {
         console.error(`Failed to fetch proposal ${id}:`, error);
         return null;
     }
