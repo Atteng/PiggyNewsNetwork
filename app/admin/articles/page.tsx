@@ -1,4 +1,3 @@
-import { Article } from '@prisma/client';
 import Link from 'next/link';
 import DeleteButton from '@/components/admin/DeleteButton';
 
