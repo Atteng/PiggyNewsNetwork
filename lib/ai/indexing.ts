@@ -29,7 +29,7 @@ export async function getPlatformIndex(): Promise<IndexEntry[]> {
         ]);
 
         // index Articles
-        articles.forEach(a => {
+        articles.forEach((a: any) => {
             index.push({
                 id: a.id,
                 type: 'article',
@@ -40,7 +40,7 @@ export async function getPlatformIndex(): Promise<IndexEntry[]> {
         });
 
         // index Proposals
-        proposals.forEach(p => {
+        proposals.forEach((p: any) => {
             index.push({
                 id: p.id,
                 type: 'proposal',
@@ -51,7 +51,7 @@ export async function getPlatformIndex(): Promise<IndexEntry[]> {
         });
 
         // index Clusters
-        clusters.forEach(c => {
+        clusters.forEach((c: any) => {
             index.push({
                 id: c.id,
                 type: 'cluster',
@@ -64,12 +64,12 @@ export async function getPlatformIndex(): Promise<IndexEntry[]> {
         cachedIndex = index;
         lastFetch = now;
 
-    } catch (e) {
+    } catch (e: any) {
         console.error('Indexing failed:', e);
     }
 
     // 4. Add Documentation (Mock)
-    docPages.forEach(p => {
+    docPages.forEach((p: any) => {
         index.push({
             id: p.id,
             type: 'doc',
