@@ -38,7 +38,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-transparent relative overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[var(--neon-pink)]/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-[var(--neon-pink)]/10 rounded-full blur-[120px]" />

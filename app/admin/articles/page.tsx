@@ -1,7 +1,8 @@
+import { Article } from '@prisma/client';
 import Link from 'next/link';
 import DeleteButton from '@/components/admin/DeleteButton';
 
-async function getArticles() {
+async function getArticles(): Promise<any[]> {
     // In a server component, we can call DB directly or fetch API using absolute URL if needed.
     // Calling DB directly is often preferred in Server Components to avoid HTTP overhead.
     // But let's use the API pattern for consistency if we want.
@@ -13,7 +14,7 @@ async function getArticles() {
         return await prisma.article.findMany({
             orderBy: { createdAt: 'desc' },
             include: { author: true }
-        });
+        }) as any; // Cast for now as include changes the type
     } catch (e) {
         console.error(e);
         return [];
@@ -29,7 +30,7 @@ export default async function AdminArticlesPage() {
                 <h2 className="text-2xl font-bold text-white">Articles</h2>
                 <Link
                     href="/admin/articles/new"
-                    className="px-4 py-2 bg-[var(--neon-pink)] text-black font-semibold rounded-full hover:bg-pink-400 transition-colors"
+                    className="px-4 py-2 bg-[var(--neon-pink)] text-white font-semibold rounded-full hover:bg-pink-400 transition-colors"
                 >
                     + New Article
                 </Link>

@@ -27,7 +27,7 @@ function SpinningLogo() {
                     position: absolute;
                     width: 40px;
                     height: 40px;
-                    background-color: #ff2f7a; /* piggy-deep-pink */
+                    background-color: #ff2f7a; /* original pink */
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -46,19 +46,19 @@ function SpinningLogo() {
             <div className="cube-wrapper">
                 {/* Front */}
                 <div className="cube-face face-front">
-                    <Image src="/icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
+                    <Image src="/white-icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
                 </div>
                 {/* Back */}
                 <div className="cube-face face-back">
-                    <Image src="/icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
+                    <Image src="/white-icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
                 </div>
                 {/* Right */}
                 <div className="cube-face face-right">
-                    <Image src="/icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
+                    <Image src="/white-icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
                 </div>
                 {/* Left */}
                 <div className="cube-face face-left">
-                    <Image src="/icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
+                    <Image src="/white-icon.png" alt="Logo" width={32} height={32} className="rounded-sm" />
                 </div>
                 {/* Top & Bottom (Solid Color) */}
                 <div className="cube-face face-top"></div>

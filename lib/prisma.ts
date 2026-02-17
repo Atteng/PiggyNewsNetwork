@@ -10,13 +10,18 @@ let pool: Pool;
 try {
     pool = new Pool({
         connectionString,
-        connectionTimeoutMillis: 5000,
+        connectionTimeoutMillis: 30000,
+        max: 10,
+        idleTimeoutMillis: 30000,
+        ssl: { rejectUnauthorized: false },
     });
 } catch (error) {
     console.warn('Pooler connection failed, using direct connection:', error);
     pool = new Pool({
         connectionString: directConnectionString,
-        connectionTimeoutMillis: 10000,
+        connectionTimeoutMillis: 60000,
+        max: 5,
+        ssl: { rejectUnauthorized: false },
     });
 }
 
@@ -28,7 +33,6 @@ export const prisma =
     globalForPrisma.prisma ||
     new PrismaClient({
         adapter,
-        log: ['query'],
     });
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;

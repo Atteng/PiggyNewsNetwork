@@ -149,7 +149,7 @@ export default function DocForm({ initialData, isEditing = false }: DocFormProps
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full mt-4 px-4 py-3 bg-[var(--neon-pink)] text-black font-bold rounded-lg hover:bg-pink-400 transition-colors disabled:opacity-50"
+                            className="w-full mt-4 px-4 py-3 bg-[var(--neon-pink)] text-white font-bold rounded-lg hover:bg-pink-400 transition-colors disabled:opacity-50"
                         >
                             {loading ? 'Saving...' : 'Save Page'}
                         </button>

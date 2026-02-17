@@ -3,8 +3,8 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
+import NavScrollIndicator from "./components/layout/NavScrollIndicator";
 import { Providers } from "./providers";
-import { VideoBackground } from "./components/common/VideoBackground";
 import { AIAssistant } from "./components/ai/AIAssistant";
 import { GlobalDocSidebar } from "./components/documentation/GlobalDocSidebar";
 
@@ -31,21 +31,13 @@ export default function RootLayout({
       <body
         className={`${jetbrainsMono.variable} antialiased font-mono bg-background text-foreground`}
       >
-        {/* Global Video Background */}
-        <VideoBackground
-          desktopVideoWebm="/videos/desktop/bg-1-vid.webm"
-          desktopVideoMp4="/videos/desktop/bg-1-vid.mp4"
-          mobileVideoWebm="/videos/mobile/bg-1-vid.webm"
-          mobileVideoMp4="/videos/mobile/bg-1-vid.mp4"
-          posterDesktop="/videos/desktop/bg-1-vid-poster.jpg"
-          posterMobile="/videos/mobile/bg-1-vid-poster.jpg"
-          fallbackImage="/bg-1.jpg"
-          overlay={true}
-          overlayOpacity={0.4}
-          className="z-0"
+        {/* Global Static Background Image */}
+        <div
+          className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url("/videos/desktop/bg-1-vid-poster.jpg")' }}
         />
-        {/* Additional overlay gradient for readability - simplified to black tint at bottom */}
-        <div className="fixed inset-0 z-[1] bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+        {/* Dark overlay for readability */}
+        <div className="fixed inset-0 z-[1] bg-black/40 pointer-events-none" />
 
         <Providers>
           <div className="relative z-10 flex min-h-screen flex-col">

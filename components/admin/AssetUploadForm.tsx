@@ -101,7 +101,7 @@ export default function AssetUploadForm() {
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 bg-[var(--neon-pink)] text-black font-bold rounded-lg hover:bg-pink-400 transition-colors disabled:opacity-50"
+                className="w-full py-3 bg-[var(--neon-pink)] text-white font-bold rounded-lg hover:bg-pink-400 transition-colors disabled:opacity-50"
             >
                 {loading ? 'Uploading...' : 'Save Asset'}
             </button>

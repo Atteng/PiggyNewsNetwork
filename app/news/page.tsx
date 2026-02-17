@@ -1,8 +1,8 @@
 import { prisma } from '@/lib/prisma';
 import NewsClient from '@/app/components/news/NewsClient';
 
-// Force dynamic rendering since data changes
-export const dynamic = 'force-dynamic';
+// Revalidate every 60 seconds to reduce DB load
+export const revalidate = 60;
 
 async function getArticles() {
     try {

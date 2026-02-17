@@ -14,7 +14,7 @@ export default async function AdminAssetsPage() {
                 <h2 className="text-2xl font-bold text-white">Brand Assets</h2>
                 <Link
                     href="/admin/assets/upload"
-                    className="px-4 py-2 bg-[var(--neon-pink)] text-black font-semibold rounded-full hover:bg-pink-400 transition-colors"
+                    className="px-4 py-2 bg-[var(--neon-pink)] text-white font-semibold rounded-full hover:bg-pink-400 transition-colors"
                 >
                     + Upload Asset
                 </Link>
@@ -34,7 +34,7 @@ export default async function AdminAssetsPage() {
                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                                 <Link
                                     href={`/admin/assets/${asset.id}/edit`}
-                                    className="px-3 py-1 bg-white text-black text-xs font-bold rounded hover:bg-gray-200"
+                                    className="px-3 py-1 bg-piggy-deep-pink text-white text-xs font-bold rounded hover:bg-pink-600 shadow-lg shadow-pink-500/20"
                                 >
                                     Edit
                                 </Link>

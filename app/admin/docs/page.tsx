@@ -14,7 +14,7 @@ export default async function AdminDocsPage() {
                 <h2 className="text-2xl font-bold text-white">Documentation</h2>
                 <Link
                     href="/admin/docs/new"
-                    className="px-4 py-2 bg-[var(--neon-pink)] text-black font-semibold rounded-full hover:bg-pink-400 transition-colors"
+                    className="px-4 py-2 bg-[var(--neon-pink)] text-white font-semibold rounded-full hover:bg-pink-400 transition-colors"
                 >
                     + New Page
                 </Link>

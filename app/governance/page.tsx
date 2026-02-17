@@ -4,7 +4,8 @@ import { Article } from '@/lib/types';
 
 import { cleanProposalBody } from '@/lib/utils'; // Import helper
 
-export const dynamic = 'force-dynamic'; // Ensure we get fresh data
+// Revalidate every 5 minutes
+export const revalidate = 300;
 
 export default async function GovernancePage() {
     const proposals = await fetchProposals();

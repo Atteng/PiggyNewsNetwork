@@ -6,7 +6,17 @@ import { Search, Sparkles, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAI } from "@/app/context/AIContext";
 
-export default function Hero() {
+interface HeroProps {
+    content?: {
+        badgeText: string | null;
+        headlineLine1: string | null;
+        headlineLine2: string | null;
+        headlineLine3: string | null;
+        tagline: string | null;
+    } | null;
+}
+
+export default function Hero({ content }: HeroProps) {
     const { openWithQuery } = useAI();
     const [input, setInput] = useState("");
 
@@ -17,6 +27,15 @@ export default function Hero() {
         openWithQuery(input);
         setInput("");
     };
+
+    // Default Fallbacks
+    const badgeText = content?.badgeText || "The Source of Truth for PiggyDAO";
+    const h1Lines = [
+        content?.headlineLine1 || "The Art of",
+        content?.headlineLine2 || "Financial",
+        content?.headlineLine3 || "Independence"
+    ];
+    const tagline = content?.tagline || "Now fully documented and archived for your perusal";
 
     return (
         <section className="relative h-full w-full overflow-hidden flex flex-col justify-center">
@@ -33,19 +52,17 @@ export default function Hero() {
                     {/* Badge - Keep "Source of Truth" (user likes this!) */}
                     <div className="mb-6 inline-flex items-center rounded-full border border-piggy-deep-pink/40 bg-black/40 px-4 py-1.5 text-xs font-medium text-piggy-deep-pink backdrop-blur-sm">
                         <Sparkles className="mr-2 h-3 w-3 text-piggy-deep-pink" />
-                        <span>The Source of Truth for PiggyDAO</span>
+                        <span>{badgeText}</span>
                     </div>
 
                     {/* Main Headline */}
                     <h1 className="mb-4 text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight drop-shadow-[0_0_20px_rgba(251,108,200,0.6)]">
-                        <div>The Art of</div>
-                        <div>Financial</div>
-                        <div>Independence</div>
+                        {h1Lines.map((line, i) => i === 0 || line ? <div key={i}>{line}</div> : null)}
                     </h1>
 
                     {/* Subheadline */}
                     <p className="mb-10 text-xs md:text-base font-light tracking-[0.2em] text-gray-200 uppercase font-mono max-w-2xl lg:max-w-none mx-auto lg:mx-0">
-                        Now fully documented and archived for your perusal
+                        {tagline}
                     </p>
 
                     {/* Hero Search Bar */}

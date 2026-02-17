@@ -39,7 +39,7 @@ export function AIAssistant() {
         scrollToBottom();
     }, [messages]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!input.trim()) return;
 
@@ -52,15 +52,32 @@ export function AIAssistant() {
         setMessages(prev => [...prev, userMsg]);
         setInput('');
 
-        // Mock response
-        setTimeout(() => {
-            const assistantMsg: Message = {
+        // Send to actual API
+        setMessages(prev => [...prev, { id: 'loading', role: 'assistant', content: 'Thinking...' }]);
+
+        try {
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: input })
+            });
+
+            const data = await response.json();
+
+            setMessages(prev => prev.filter(m => m.id !== 'loading'));
+            setMessages(prev => [...prev, {
+                id: Date.now().toString(),
+                role: 'assistant',
+                content: data.content || "I'm having trouble connecting to my central brain. Please check your internet or try again later!"
+            }]);
+        } catch (error) {
+            setMessages(prev => prev.filter(m => m.id !== 'loading'));
+            setMessages(prev => [...prev, {
                 id: (Date.now() + 1).toString(),
                 role: 'assistant',
-                content: "I'm a demo assistant for now. Connect me to a real backend to get actual answers!"
-            };
-            setMessages(prev => [...prev, assistantMsg]);
-        }, 1000);
+                content: "Oink! Something went wrong. I couldn't reach the server."
+            }]);
+        }
     };
 
     return (
@@ -108,8 +125,8 @@ export function AIAssistant() {
                                 >
                                     <div
                                         className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${msg.role === 'user'
-                                                ? 'bg-[#2a1a1a] text-white'
-                                                : 'bg-transparent text-gray-300'
+                                            ? 'bg-[#2a1a1a] text-white'
+                                            : 'bg-transparent text-gray-300'
                                             }`}
                                     >
                                         {msg.content}
