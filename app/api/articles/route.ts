@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -13,7 +12,7 @@ export async function GET(request: Request) {
   const skip = (page - 1) * limit;
 
   // Build filter conditions
-  const where: Prisma.ArticleWhereInput = {
+  const where: any = {
     status: 'published', // Default to published only for public API
   };
 
