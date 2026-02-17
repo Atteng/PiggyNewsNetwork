@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { AssetCategory } from '@prisma/client';
 
 export async function GET() {
     try {
@@ -40,7 +39,7 @@ export async function POST(request: Request) {
             data: {
                 title: body.title,
                 description: body.description,
-                category: body.category as AssetCategory,
+                category: body.category as any,
                 thumbnailUrl: body.thumbnailUrl,
                 // Optionally create files in the same transaction if provided
                 files: body.files ? {

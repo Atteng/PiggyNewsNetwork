@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { Category } from '@prisma/client';
 
 export async function GET(
     request: Request,
@@ -57,7 +56,7 @@ export async function PUT(
             data: {
                 title: body.title,
                 slug: body.slug,
-                category: body.category as Category,
+                category: body.category as any,
                 excerpt: body.excerpt,
                 content: body.content,
                 thumbnailUrl: body.thumbnailUrl,

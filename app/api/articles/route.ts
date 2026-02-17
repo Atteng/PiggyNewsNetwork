@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { Category, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -18,10 +18,10 @@ export async function GET(request: Request) {
   };
 
   if (categoryParam && categoryParam !== 'All') {
-    // Map string to enum, handling potential mismatches safely
-    const categoryEnum = Object.values(Category).find(c => c === categoryParam);
-    if (categoryEnum) {
-      where.category = categoryEnum as Category;
+    // Basic validation against known categories
+    const validCategories = ['Proposal', 'Temp_Check', 'General', 'Marketing', 'Operations'];
+    if (validCategories.includes(categoryParam)) {
+      where.category = categoryParam as any;
     }
   }
 
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
       data: {
         title: body.title,
         slug: body.slug,
-        category: body.category as Category,
+        category: body.category as any,
         excerpt: body.excerpt,
         content: body.content,
         thumbnailUrl: body.thumbnailUrl,

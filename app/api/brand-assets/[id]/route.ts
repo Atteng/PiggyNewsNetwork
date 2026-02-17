@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { AssetCategory } from '@prisma/client';
 
 import { auth } from "@/auth";
 
@@ -22,7 +21,7 @@ export async function PUT(
             data: {
                 title: body.title,
                 description: body.description,
-                category: body.category as AssetCategory,
+                category: body.category as any,
                 thumbnailUrl: body.thumbnailUrl,
             },
         });
