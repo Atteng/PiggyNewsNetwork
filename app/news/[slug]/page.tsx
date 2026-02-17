@@ -56,7 +56,7 @@ async function getFeaturedArticles(currentSlug: string) {
             take: 2
         });
 
-        return articles.map(a => ({
+        return articles.map((a: any) => ({
             id: a.slug,
             title: a.title,
             excerpt: a.excerpt || '',
