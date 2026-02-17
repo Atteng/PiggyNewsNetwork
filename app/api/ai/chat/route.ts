@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
         const relevantContent = searchIndex(message, index);
 
         const contextString = relevantContent.length > 0
-            ? `Relevant Context from PiggyDAO Documents:\n${relevantContent.map(c => `[TYPE: ${c.type}] TITLE: ${c.title}\nCONTENT: ${c.content}`).join('\n\n')}`
+            ? `Relevant Context from PiggyDAO Documents:\n${relevantContent.map((c: any) => `[TYPE: ${c.type}] TITLE: ${c.title}\nCONTENT: ${c.content}`).join('\n\n')}`
             : "No specific platform context found for this query in the local documents.";
 
         // 2. Prepare the prompt for Gemini
