@@ -27,7 +27,7 @@ export async function PUT(
         });
 
         return NextResponse.json(asset);
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error updating brand asset:', error);
         return NextResponse.json({ error: 'Failed to update brand asset' }, { status: 500 });
     }
@@ -49,7 +49,7 @@ export async function DELETE(
         });
 
         return NextResponse.json({ message: 'Brand asset deleted successfully' });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error deleting brand asset:', error);
         return NextResponse.json({ error: 'Failed to delete brand asset' }, { status: 500 });
     }

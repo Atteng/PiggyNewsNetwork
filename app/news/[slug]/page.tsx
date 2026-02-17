@@ -90,7 +90,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
     prisma.article.update({
         where: { slug },
         data: { views: { increment: 1 } }
-    }).catch(e => console.error("Failed to increment view", e));
+    }).catch((e: any) => console.error("Failed to increment view", e));
 
     return (
         <div className="min-h-screen relative">

@@ -36,7 +36,7 @@ async function getArticles() {
             featured: a.featured
         }));
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Database Error:", error);
         return [];
     }
